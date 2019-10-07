@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Todo List - Thymeleaf</title>
+</head>
+<body>
+<div class="container">
+    <h1>Todo List View using Thymeleaf & Bootstrap</h1>
+    <table class="table table-striped table-dark table-hover">
+        <tr>
+            <th>ID</th>
+            <th>message</th>
+            <th colspan="3">posted by</th>
+        </tr>
+        <tr th:each="i : ${todo}">
+            <th th:text="${i.getId()}">...</th>
+            <td th:text="${i.getMessage()}">...</td>
+            <td th:text="${i.getUsername()}">...</td>
+            <td><a th:href="${'/home/edit/'+i.getId()}">edit</a></td>
+            <td><a th:href="${'/home/delete/'+i.getId()}">delete</a></td>
+        </tr>
+    </table>
+    <a href="/home/new" class="btn btn-primary">Create new todo</a>
+</div>
+</body>
+</html>

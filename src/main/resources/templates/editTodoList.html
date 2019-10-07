@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Update selected Todo</title>
+</head>
+<body>
+<div class="container">
+    <!--<img src="..." class="rounded float-left" alt="...">-->
+    <h1>Edit the selected Todo:</h1><br>
+    <form th:object="${todo}" th:action="@{/home}" method="post"> <!-- if you dont specify object=todo you have to type todo.id, etc.-->
+        <div class="form-group">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" placeholder="4" value="1" th:field="*{id}" readonly>
+        </div><br>
+
+        <div class="form-group">
+            <label for="todo">Username</label>
+            <input type="text" class="form-control" id="todo" placeholder="buy snacks" th:field="*{message}">
+        </div><br>
+
+        <div class="form-group">
+            <label for="name">Posted by</label>
+            <input type="text" class="form-control" id="name" placeholder="Johny" th:field="*{username}">
+        </div><br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

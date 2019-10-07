@@ -1,0 +1,18 @@
+2019-10-03 22:26:53 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM TABLE TODO_LIST WHERE ID = 0"; expected "identifier"; SQL statement:
+DELETE * FROM TABLE TODO_LIST WHERE ID = 0 [42001-199]
+2019-10-07 17:44:38 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "DELETE *[*] FROM USER"; expected "identifier"; SQL statement:
+DELETE * FROM USER [42001-199]
+2019-10-07 17:45:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "FROM USER DELETE *[*]"; expected "(, USE, RIGHT, LEFT, FULL, INNER, JOIN, CROSS, NATURAL, ,, SELECT"; SQL statement:
+FROM USER DELETE * [42001-199]
+2019-10-07 18:10:46 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "ALTER TABLE USER AUTO_INCREMENT[*]=1"; expected "., ADD, SET, RENAME, DROP, CHANGE, MODIFY, ALTER"; SQL statement:
+ALTER TABLE USER AUTO_INCREMENT=1 [42001-199]
+2019-10-07 18:12:34 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (USER: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."USER"("ID","PASSWORD","USERNAME","ROLE")VALUES(?,?,?,?) -- (?1, ?2, ?3, ?4) [22018-199]
+2019-10-07 18:12:34 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (USER: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."USER"("ID","PASSWORD","USERNAME","ROLE")VALUES(?,?,?,?) -- (?1, ?2, ?3, ?4) [22018-199]
