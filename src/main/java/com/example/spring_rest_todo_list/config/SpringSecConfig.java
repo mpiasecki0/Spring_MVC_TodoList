@@ -10,7 +10,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.NoOpPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -20,11 +20,16 @@ public class SpringSecConfig extends WebSecurityConfigurerAdapter {
     private UserDetailsService userDetailsService;
 
     @Bean
+    PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
     public AuthenticationProvider authenticationProvider()
     {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
-        provider.setPasswordEncoder(NoOpPasswordEncoder.getInstance());  //new BCryptPasswordEncoder()
+        provider.setPasswordEncoder(passwordEncoder());
         return provider;
     }
 
@@ -32,8 +37,10 @@ public class SpringSecConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-                .antMatchers("/", "/index", "/register", "/h2-console/**").permitAll()
-                .anyRequest().authenticated()
+                .antMatchers("/", "/index", "/register").permitAll()
+                .antMatchers("/home/**").authenticated()
+                .antMatchers("/api/**").authenticated()
+                .antMatchers("/h2-console/**").hasRole("ADMIN")
             .and()
                 .formLogin()
                 .loginPage("/login")
@@ -44,6 +51,6 @@ public class SpringSecConfig extends WebSecurityConfigurerAdapter {
 
         http.csrf().disable();  // for h2 console
         http.headers().frameOptions().disable();    // for h2 console
-    }   //h2 console only as admin
+    }
 
 }

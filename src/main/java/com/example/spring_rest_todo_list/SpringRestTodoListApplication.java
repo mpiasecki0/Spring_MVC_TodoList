@@ -10,6 +10,7 @@ public class SpringRestTodoListApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(SpringRestTodoListApplication.class, args);
-    }       // todo: add admin role for h2/ add USER ROLE when registering/ and  BCRYPT for password encryption :)
-    // todo: test unique FIELD on USER... check with autogen if its unique is working
+    }       // todo: ADMIN role is useless atm, because of CustomUserDetails returning wrong GrantedAuthorities
+    // todo: check inserting USER in initH2Data.java after constraint UNIQUE has been set
+    // todo: add content that can only be seen by certain ROLE
 }

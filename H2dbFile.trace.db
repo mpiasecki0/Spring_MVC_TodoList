@@ -16,3 +16,27 @@ INSERT INTO "PUBLIC"."USER"("ID","PASSWORD","USERNAME","ROLE")VALUES(?,?,?,?) --
 2019-10-07 18:12:34 jdbc[13]: exception
 org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (USER: ""ID"" BIGINT NOT NULL)"; SQL statement:
 INSERT INTO "PUBLIC"."USER"("ID","PASSWORD","USERNAME","ROLE")VALUES(?,?,?,?) -- (?1, ?2, ?3, ?4) [22018-199]
+2019-10-08 18:55:51 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (USER: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."USER"("ID","PASSWORD","USERNAME","ROLE")VALUES(?,?,?,?) -- (?1, ?2, ?3, ?4) [22018-199]
+2019-10-08 18:55:51 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLDataException: Data conversion error converting "'' (USER: ""ID"" BIGINT NOT NULL)"; SQL statement:
+INSERT INTO "PUBLIC"."USER"("ID","PASSWORD","USERNAME","ROLE")VALUES(?,?,?,?) -- (?1, ?2, ?3, ?4) [22018-199]
+2019-10-08 19:00:49 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM USER SORT BY[*] ID DESCENDING"; SQL statement:
+SELECT * FROM USER SORT BY ID DESCENDING [42000-199]
+2019-10-08 19:00:55 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM USER SORT BY[*] ID DESC"; SQL statement:
+SELECT * FROM USER SORT BY ID DESC [42000-199]
+2019-10-08 19:00:58 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM USER SORT BY[*] ID DESC"; SQL statement:
+SELECT * FROM USER SORT BY ID DESC [42000-199]
+2019-10-08 19:01:08 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM USER ODER BY[*] ID DESC"; SQL statement:
+SELECT * FROM USER ODER BY ID DESC [42000-199]
+2019-10-08 19:01:19 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM USER ODER BY[*] ID DESC "; SQL statement:
+SELECT * FROM USER ODER BY id DESC [42000-199]
+2019-10-08 19:01:36 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "SELECT * FROM USER ODER BY[*] = ID DESC"; SQL statement:
+SELECT * FROM USER ODER BY = ID DESC [42000-199]

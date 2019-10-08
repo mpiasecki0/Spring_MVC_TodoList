@@ -28,20 +28,20 @@ public class ViewController {
     public String showTodoLists(Model model){
         List<TodoList> list = todoListService.findAllTodoLists();
         model.addAttribute("todo", list);
-        return "todoListView";
+        return "/home/todoListView";
     }
 
     @RequestMapping("/home/{id}")
     public String showTodoListById(@PathVariable Long id, Model model){
         TodoList todo = todoListService.findListById(id);
         model.addAttribute("todo", todo);
-        return "todoListView";
+        return "/home/todoListView";
     }
 
     @RequestMapping("/home/new")
     public String createTodoList(Model model){
         model.addAttribute("todo", new TodoList());
-        return "createTodoList";
+        return "/home/createTodoList";
     }
 
     @RequestMapping(value = "/home", method = RequestMethod.POST)
@@ -54,7 +54,7 @@ public class ViewController {
     public String updateTodoList(@PathVariable Long id, Model model){
         TodoList updateTodo = todoListService.findListById(id);
         model.addAttribute("todo", updateTodo);
-        return "editTodoList";
+        return "/home/editTodoList";
     }
 
     @RequestMapping(value = "/home/delete/{id}")

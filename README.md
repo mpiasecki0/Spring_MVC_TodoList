@@ -7,4 +7,4 @@ This application is an "Enterprise Edition" of a simple TodoList App combining a
 
 ### Prerequisites
 
-This Application is using plain Java & the build tool Maven with the latest release of the Spring Framework (5), so I recommend the latest version of the JDK which you can download for free from Oracle. Other than that you just need to clone and import it as a Maven project and it should be ready to run.
+This Application is using plain Java & the build tool Maven with the latest release of the Spring Framework (5), so I recommend the latest version of the Java 8 JDK which you can download for free from Oracle. Other than that you just need to clone and import it as a Maven project and it should be ready to run.

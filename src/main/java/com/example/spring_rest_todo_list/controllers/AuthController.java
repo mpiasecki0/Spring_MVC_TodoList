@@ -1,11 +1,11 @@
 package com.example.spring_rest_todo_list.controllers;
 
-        import com.example.spring_rest_todo_list.model.User;
-        import com.example.spring_rest_todo_list.services.UserService;
-        import org.springframework.stereotype.Controller;
-        import org.springframework.ui.Model;
-        import org.springframework.web.bind.annotation.RequestMapping;
-        import org.springframework.web.bind.annotation.RequestMethod;
+import com.example.spring_rest_todo_list.model.User;
+import com.example.spring_rest_todo_list.services.UserService;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class AuthController {

@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="header.html :: headerfiles">
     <title>Registration Page</title>
 </head>
+
 <body>
+<header th:insert="header.html :: nav"></header>
+
 <div class="container">
     <h1>Please provide the necessary credentials for the authentication service.</h1>
     <form th:object="${user}" th:action="@{/register}" method="post">
@@ -20,11 +19,23 @@
             <div class="form-group col-md-6">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" th:field="*{password}">
+                <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input type="checkbox" class="form-check-input" id="showPWD" onclick="showPassword()">
+                <label class="form-check-label" for="showPWD">show password</label>
             </div>
-            <!-- add Checkbox for show password -->
         </div>
         <button type="submit" class="btn btn-primary">Register</button>
     </form>
+    <script>
+    function showPassword() {
+        var box = document.getElementById("password");
+        if (box.type === "password") {
+            box.type = "text";
+        } else {
+            box.type = "password";
+        }
+    }
+    </script>
 </div>
 </body>
 </html>

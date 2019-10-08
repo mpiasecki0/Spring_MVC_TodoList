@@ -1,0 +1,22 @@
+.container {
+    background-color: #ccffcc;
+}
+
+.navbar-brand{
+    padding-right: 30px;
+}
+
+.nav-item{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.login-btn{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.logout-btn{
+    padding-left: 10px;
+    padding-right: 10px;
+}
