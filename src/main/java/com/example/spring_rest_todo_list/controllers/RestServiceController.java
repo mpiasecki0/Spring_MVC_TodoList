@@ -1,7 +1,9 @@
 package com.example.spring_rest_todo_list.controllers;
 
 import com.example.spring_rest_todo_list.model.TodoList;
+import com.example.spring_rest_todo_list.model.User;
 import com.example.spring_rest_todo_list.services.TodoListService;
+import com.example.spring_rest_todo_list.services.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -14,10 +16,12 @@ public class RestServiceController {
     public static final String BASE_URL = "/api";
 
     private final TodoListService todoListService;
+    private final UserService userService;
 
 
-    public RestServiceController(TodoListService todoListService) {
+    public RestServiceController(TodoListService todoListService, UserService userService) {
         this.todoListService = todoListService;
+        this.userService = userService;
     }
 
     @GetMapping
@@ -54,4 +58,13 @@ public class RestServiceController {
         return todoListService.updateList(list);
     }
 
+    @GetMapping("/user")
+    public List<User> getAllUsers(){
+        return userService.findAllUsers();
+    }
+
+    @GetMapping("/user/{id}")
+    public User getUserById(@PathVariable Long id){
+        return userService.findUserById(id);
+    }
 }

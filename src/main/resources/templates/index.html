@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head th:insert="header.html :: headerfiles">
     <title>My Index HTML</title>
 </head>
@@ -9,20 +10,36 @@
 
 <div class="container">
     <div>
-    <h1>This is the index.html file</h1><br>
-    <a href="/home">Click here to list all objects from the database in a view.</a>
-    <br><br>
-    <a href="/api">Click this to list the raw JSON file data from the REST service.</a>
-    <br><br>
-    <a href="/login">Click here to login/authenticate yourself.</a> (you cannot use the service if you dont)
-    <br><br>
-    <a href="/register">Click here to register a new account.</a><br><br>
-    </div>
+        <div>
+            <h1>Todolist Application Homepage</h1><br>
+            <div>
+                <p sec:authorize="isAnonymous()" id="login-text">Currently not logged in.</p>
+                <p sec:authorize="isAuthenticated()">Currently logged in as: <b id="user-name-label" sec:authentication="name"></b></p><br>
+            </div>
+            <h3>Info:</h3><br>
+            <p>Start by authenticating yourself by clicking the login button on the top right side.</p>
+            <p>You can also register a new account by clicking the button on the navigation bar.</p>
+            <p>Now you can start using our services!</p><br>
+        </div>
 
-    <div>
-        <h3>You can also use a tool like "Postman" to make CRUD calls to my REST API. (address: /api )</h3>
+        <div>
+            <h3>Take me to my destination:</h3>
+            <br>
+            <a th:href="@{~/home}">Start creating and editing Todo's!</a>
+            <br><br>
+            <a th:href="@{~/api}">Show me the Todolist in raw JSON format. (JSON Browser extension recommended for better view)</a>
+            <br><br><br>
+        </div>
+
+        <div>
+            <h3>You can also use a tool like "Postman" to make CRUD calls to the REST API.<br>
+                Available routes: /api/{id} &nbsp;&nbsp;(GET/POST/PUT/DELETE)<br>
+                ----------------- &nbsp;/api/user/{id} (ADMIN only!)
+            </h3><br><br><br>
+            <h3>Application powered by: </h3><img id="spring-logo" src="/img/spring_logo.png" class="img-fluid" alt="Responsive image">
+            <img id="thymeleaf-logo" src="/img/thymeleaf_logo.png" class="img-fluid" alt="Responsive image">
+        </div>
     </div>
 </div>
-
 </body>
 </html>

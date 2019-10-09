@@ -2,21 +2,29 @@
     background-color: #ccffcc;
 }
 
-.navbar-brand{
-    padding-right: 30px;
-}
-
-.nav-item{
-    padding-left: 20px;
-    padding-right: 20px;
-}
-
-.login-btn{
-    padding-left: 10px;
+.nav-item {
+    padding-left: 25px;
     padding-right: 10px;
 }
 
-.logout-btn{
-    padding-left: 10px;
+.login-btn {
+    padding-right: 5px;
+}
+
+.logout-btn {
     padding-right: 10px;
+}
+
+#login-text {
+    color: #ff4d4d;
+}
+
+#spring-logo {
+    max-height: 10%;
+    max-width: 10%;
+}
+
+#thymeleaf-logo {
+    max-height: 10%;
+    max-width: 10%;
 }
