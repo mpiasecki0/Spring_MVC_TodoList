@@ -5,9 +5,11 @@ import com.example.spring_rest_todo_list.model.User;
 import com.example.spring_rest_todo_list.services.TodoListService;
 import com.example.spring_rest_todo_list.services.UserService;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 
 @RestController
 @RequestMapping(RestServiceController.BASE_URL)
@@ -42,7 +44,7 @@ public class RestServiceController {
 
     @DeleteMapping
     public String deleteTodoByObject(TodoList todoList){
-        // can also return void obviously
+        // can be void...
         return todoListService.deleteListByObject(todoList);
     }
 
@@ -54,11 +56,11 @@ public class RestServiceController {
 
     @PutMapping
     public TodoList updateTodo(TodoList list){
-        // does the same thing as POST
+        // does the same thing as POST but with HTTP PUT
         return todoListService.updateList(list);
     }
 
-    @GetMapping("/user")
+    @GetMapping(value = "/user", produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> getAllUsers(){
         return userService.findAllUsers();
     }

@@ -9,22 +9,27 @@
 <header th:insert="header.html :: nav"></header>
 
 <div class="container">
-    <!--<img src="..." class="rounded float-left" alt="...">-->
     <h1>Create or Overwrite a new Todo:</h1><br>
     <form th:object="${todo}" th:action="@{/home}" method="post"> <!-- if you dont specify object=todo you have to type todo.id, etc.-->
         <div class="form-group">
             <label for="id">ID</label>
             <input type="text" class="form-control" id="id" placeholder="4" value="1" th:field="*{id}">
+            <p th:if="${#fields.hasErrors('id')}" th:errors="*{id}"
+               class="alert alert-danger"></p>
         </div><br>
 
         <div class="form-group">
             <label for="todo">Message</label>
             <input type="text" class="form-control" id="todo" placeholder="buy snacks" th:field="*{message}">
+            <p th:if="${#fields.hasErrors('message')}" th:errors="*{message}"
+               class="alert alert-danger"></p>
         </div><br>
 
         <div class="form-group">
             <label for="name">Posted by</label>
             <input type="text" class="form-control" id="name" placeholder="Johny" th:field="*{username}">
+            <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+               class="alert alert-danger"></p>
         </div><br>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

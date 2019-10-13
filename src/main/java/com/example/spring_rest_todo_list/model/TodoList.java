@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Size;
 
 @Entity
 public class TodoList {
@@ -11,7 +12,9 @@ public class TodoList {
     //@GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     private long id;
+    @Size(min = 1, max = 300, message = "The message should have at least 1 and a maximum of 300 characters")
     private String message;
+    @Size(min = 1, max = 300, message = "Please tell us who left the message")
     private String username;
 
     public void setId(long id) {

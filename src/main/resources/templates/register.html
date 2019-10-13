@@ -14,11 +14,15 @@
             <div class="form-group col-md-6">
                 <label for="username">Username</label>
                 <input type="text" class="form-control" id="username" placeholder="Username" th:field="*{username}">
+                <p th:if="${#fields.hasErrors('username')}" th:errors="*{username}"
+                   class="alert alert-danger"></p>
             </div>
 
             <div class="form-group col-md-6">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" placeholder="Password" th:field="*{password}">
+                <p th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
+                   class="alert alert-danger"></p>
                 <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="checkbox" class="form-check-input" id="showPWD" onclick="showPassword()">
                 <label class="form-check-label" for="showPWD">show password</label>

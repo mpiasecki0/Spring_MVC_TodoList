@@ -11,5 +11,5 @@ public class SpringRestTodoListApplication {
     public static void main(String[] args) {
         SpringApplication.run(SpringRestTodoListApplication.class, args);
     }
-    // todo: UNIQUE Constraint doesnt work! (inserting NULL USERS works atm.)
+
 }

@@ -4,10 +4,12 @@ import com.example.spring_rest_todo_list.model.TodoList;
 import com.example.spring_rest_todo_list.services.TodoListService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -45,9 +47,19 @@ public class ViewController {
     }
 
     @RequestMapping(value = "/home", method = RequestMethod.POST)
-    public String saveOrUpdateTodoList(TodoList todo){
-        TodoList savedTodo = todoListService.saveList(todo);
-        return "redirect:/home";
+    public String saveOrUpdateTodoList(@Valid TodoList todo, Errors errors){
+        if(errors.hasErrors())
+        {
+            return "/home/createTodoList";
+        }else if(todo.getMessage() == "")
+        {
+            errors.reject("Empty Message!");
+            return "/home/createTodoList";
+        }else
+            {
+            TodoList savedTodo = todoListService.saveList(todo);
+            return "redirect:/home";
+        }
     }
 
     @RequestMapping(value = "/home/edit/{id}")
